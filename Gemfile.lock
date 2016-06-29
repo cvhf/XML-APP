@@ -87,6 +87,9 @@ GEM
     json-ld (2.0.0.1)
       multi_json (~> 1.11)
       rdf (~> 2.0)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     ld-patch (0.3.0)
       ebnf (~> 1.0, >= 1.0.1)
       rdf (~> 2.0)
@@ -302,6 +305,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   linkeddata (~> 2.0)
   nokogiri
   pg (= 0.17.1)

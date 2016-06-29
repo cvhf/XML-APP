@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'projekt' => 'static_pages#projekt'
   get 'news'    => 'static_pages#news'
 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,27 +1,24 @@
-<h1>Bärte-Quiz</h1>
-	<!--
-	<ul>
-		<% while @query.more do %>
-     		<li><%= @query.next %></li>
-     	<% end%> 
-	</ul>
-	-->
 
-	<% @person.each do |p| %>
+	<!--
+	<h1>Bärte-Quiz</h1>
+	-->
+	<p></p>
+	<% for thing in @paginatable_array %>
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="panel panel-default">
-				<div class="panel-heading">Bild</div>
-				<div class="panel-body">
-					<%= link_to image_tag("16854286157_2734093abc_z.jpg", alt: "Mann mit Bart", size: "290x320"),'#' %>
+				<div class="panel-heading"><b><%=  @objektname[thing]	%></b> 
+						(Id: <%= @objektid[thing] %>)</div>
+				<div class="panel-body" style="text-align: center;">
+					<%= link_to image_tag( @objektid[thing]+".jpg", alt:  @objektid[thing] , size: "290x320"),'#' %>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="panel panel-default">
-				<div class="panel-heading">Infos</div>
+				<div class="panel-heading"><b>Zusätzliche Informationen</b> (bereitgestellt durch DBPedia via SPARQL-Request)</div>
 				<div class="panel-body">
-					Hier kommen die Daten aus unserer XML-Datei rein. <%= debug @result %>
+					<%= @result.html_safe %>
 				</div>
 			</div>
 		</div>
@@ -29,27 +26,15 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">Zusätzliche Informationen:</div>
+				<div class="panel-heading">Infos</div>
 				<div class="panel-body">
-					<%= @result.html_safe %>
+					Dargestellte Person: <%= @name[thing]%> (* <%= @birth[thing]%>, &#x271D; <%= @death[thing]%>)
 				</div>
 			</div>
 		</div>
 	</div>
 	<% end %>
-	<!--
-	<div id="content">Dynamic Content goes here</div>
-    <div id="page-selection">Pagination goes here</div>
-    <script>
-        // init bootpag
-        $('#page-selection').bootpag({
-            total: 5
-        }).on("page", function(event, /* page number here */ num){
-             $("#content").html("Insert content"); // some ajax content loading...
-        });
-    </script>
-	-->
-	<ul class="pager">
-		<li><a href="#">Previous</a></li>
-		<li><a href="#">Next</a></li>
-	</ul>
+	<div style="text-align: center;">
+		<%= paginate @paginatable_array %>
+	</div>
+	

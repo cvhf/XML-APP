@@ -37,12 +37,14 @@ class StaticPagesController < ApplicationController
     # create BaseX-Session
     #session = BaseXClient::Session.new("localhost", 1984, "admin", "admin")
 
+    #randomNr = 1 +rand(13000)
   	begin
      	# create query instance
   		#@input = "//obj[position()<6]/*/a8000/text()"
+  		#@input2 ="for $obj in subsequence(db:open('DBXML')/root/obj,"+randomNr+", 10) let $per := $obj/objektid return $per"
 
-  		#session.execute("open baerte")
-  		#@query = session.query(@input)
+  		#session.execute("open DBXML")
+  		#@query = session.query(@input2)
   		# close query instance
   		#print query.close()
   		

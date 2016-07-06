@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="root">
+        <xs:complexType><xs:sequence><xs:element name="obj"  maxOccurs="unbounded" >
+            <xs:complexType><xs:sequence>
+                <xs:element type="xs:int" name="objektid"/>
+                <xs:element type="xs:string" name="objektname"/>
+                <xs:element type="xs:string" name="name"/>
+                <xs:element type="xs:string" name="birth"/>
+                <xs:element type="xs:string" name="death"/>
+                <xs:element type="xs:string" name="location"/>
+            </xs:sequence></xs:complexType>
+        </xs:element></xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema >

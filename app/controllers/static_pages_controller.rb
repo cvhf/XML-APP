@@ -1,12 +1,17 @@
 class StaticPagesController < ApplicationController
 
 	require 'BaseXClient.rb'
-  require 'SparqlQuery.rb'
+  	require 'SparqlQuery.rb'
+  	require 'duck_duck_go'
 
 	def about	
 	end
 
-	def help	
+	def help
+		ddg = DuckDuckGo.new
+		bart = ddg.zeroclickinfo("Bartpflege") # ZeroClickInfo object
+		@bartpflege = zci.abstract_text
+		@quelle=zci.abstract_url
 	end
   
   def home	

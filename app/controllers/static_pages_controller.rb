@@ -10,8 +10,8 @@ class StaticPagesController < ApplicationController
 	def help
 		ddg = DuckDuckGo.new
 		bart = ddg.zeroclickinfo("Bartpflege") # ZeroClickInfo object
-		@bartpflege = zci.abstract_text
-		@quelle=zci.abstract_url
+		@bartpflege = bart.abstract_text
+		@quelle=bart.abstract_url
 	end
   
   def home	

@@ -39,29 +39,36 @@ class StaticPagesController < ApplicationController
     @birth =  @xml_obj.xpath("//obj/birth").collect  {|node| node.text.strip}
     @death =  @xml_obj.xpath("//obj/death").collect  {|node| node.text.strip}
 
-    # create BaseX-Session
-    #session = BaseXClient::Session.new("localhost", 1984, "admin", "admin")
+    #create BaseX-Session
+    session = BaseXClient::Session.new("localhost", 1984, "admin", "admin")
 
-    #randomNr = 1 +rand(13000)
+    
+    
   	begin
-     	# create query instance
-  		#@input = "//obj[position()<6]/*/a8000/text()"
-  		#@input2 ="for $obj in subsequence(db:open('DBXML')/root/obj,"+randomNr+", 10) let $per := $obj/objektid return $per"
-
-  		#session.execute("open DBXML")
-  		#@query = session.query(@input2)
-  		# close query instance
-  		#print query.close()
+     	 #create query instance
   		
-  		#rescue Exception => e
-  			# print exception
- 				#puts e
+  		@input2 ="xquery count(//obj/objektid)"
+
+		puts "#{@input2}"
+  		session.execute("open dbxml")
+		@dbObjectCount = session.execute(@input2)
+   		
+		puts @dbObjectCount
+  		query = session.query(@input2)
+  		# close query instance
+  		print query.close()
+  		
+		#puts query
+  		rescue Exception => e
+  			 #print exception
+ 				puts e
  			end
 
- 		# close session
- 		# session.close
+ 		 #close session
+ 		 session.close
   		
  		end
+
 
   	def contact
   	end

@@ -1,8 +1,11 @@
 
+<%= javascript_include_tag "rating" %>
 	<!--
 	<h1>Bärte-Quiz</h1>
 	-->
-	<p></p>
+
+
+	<div id = "main">
 	<% for thing in @paginatable_array %>
 	<div class="row">
 		<div class="col-sm-6">
@@ -23,20 +26,58 @@
 			</div>
 		</div>
 	</div>
+
+   <div id = "<%= @death[thing]%>" name = 'death' ></div>
+     <div id = "<%= @birth[thing]%>" name = 'birth' ></div>
+
+     <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">Bewertung</div>
+            <div class="panel-body">
+              <div class="container"style="text-align: center">
+                <h2 >Bewerten Sie Bitte den Bart und die Frisur</h2>
+                <div class="row col-sm-12">
+                  <div class="col-sm-4">
+                    <label for="rating1">Geht Garnicht! (0)</label>
+                    <input type="radio" name="radio" id="rating1" />
+                  </div>
+                  <div class="col-sm-4">
+                    <label for="rating2">OK (1)</label>
+                    <input type="radio" name="radio" id="rating2" checked="checked" />
+                  </div>
+                  <div class="col-sm-4">
+                    <label for="rating3">Sehr Schnieke (2)</label>
+                    <input type="radio" name="radio" id="rating3" />
+                  </div>
+                </div>
+                <div class="row col-sm-12" style="text-align: center; padding-top: 20px; ">
+
+                <button type="button" onclick="checkRating()">Bewerten und Weiter</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">Infos</div>
 				<div class="panel-body">
 					Dargestellte Person: <%= @name[thing]%> (* <%= @birth[thing]%>, &#x271D; <%= @death[thing]%>) <br>
-					Dies ist einer von <%= @dbObjectCount %> Datensätzen aus der Portraitsammlung der Uni Leibzig
+					Dies ist einer von <%= @dbObjectCount %> Datensätzen aus der Portraitsammlung der Uni Leipzig
 					
 				</div>
 			</div>
 		</div>
 	</div>
 	<% end %>
-	<div style="text-align: center;">
+	<!-- <div style="text-align: center;">
 		<%= paginate @paginatable_array %>
-	</div>
-	
+	</div> -->
+  </div>
